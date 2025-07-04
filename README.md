@@ -26,6 +26,7 @@ Portions Copyright (c) 2012-2013 The Cryptonote developers.
   - [Pruning](#Pruning)
   - [Debugging](#Debugging)
   - [Known issues](#known-issues)
+  - [Transaction fees](#transaction-fees)
 
 ## Development resources
 
@@ -81,6 +82,10 @@ Monero is a private, secure, untraceable, decentralised digital currency. You ar
 
 JOY Sovereign Coin experiments with a *proof-of-inference* consensus design. Instead of traditional mining, nodes submit verifiable machine learning inference results to participate in block production. The inference output is hashed and converted to a deterministic numeric score in `src/cryptonote_basic/proof_of_inference.cpp`.
 These lightweight models can run on edge devices, allowing everyday users to secure the network without dedicated mining hardware. This feature is experimental and disabled by default.
+
+## Transaction fees
+
+See [docs/FEES.md](docs/FEES.md) for details on how transaction fees are calculated. Set `CRYPTONOTE_FEES_ENABLED` to `0` in `src/cryptonote_config.h` to enable feeless transfers.
 
 ## About this project
 
