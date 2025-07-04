@@ -82,6 +82,30 @@ Monero is a private, secure, untraceable, decentralised digital currency. You ar
 JOY Sovereign Coin experiments with a *proof-of-inference* consensus design. Instead of traditional mining, nodes submit verifiable machine learning inference results to participate in block production. The inference output is hashed and converted to a deterministic numeric score in `src/cryptonote_basic/proof_of_inference.cpp`.
 These lightweight models can run on edge devices, allowing everyday users to secure the network without dedicated mining hardware. This feature is experimental and disabled by default.
 
+### Obtaining a scoring model
+A reference ONNX model for testing is provided in the [jsc-models](https://github.com/joy-sovereign/jsc-models) repository. Clone the repository and run the included training script:
+```bash
+git clone https://github.com/joy-sovereign/jsc-models.git
+cd jsc-models
+python3 -m pip install -r requirements.txt
+python3 train.py --output model.onnx
+```
+Any ONNX model that produces deterministic output can be used.
+
+### Running inference locally
+Use `utils/run_inference.py` to generate an output for a block hashing blob:
+```bash
+python3 utils/run_inference.py --model model.onnx --input block_blob.bin --out inference.bin
+```
+When `--inference-mining` is enabled, `monerod` computes `calculate_block_inference_score` on each candidate block and compares it to the difficulty target. The script helps verify the score produced by your model.
+
+### Dependencies
+The example tooling requires Python 3 with `numpy` and `onnxruntime` installed:
+```bash
+pip install numpy onnxruntime
+```
+If you build the model yourself you may also need `torch` or another framework.
+
 ## About this project
 
 This is the core implementation of Monero. It is open source and completely free to use without restrictions, except for those specified in the license agreement below. There are no restrictions on anyone creating an alternative implementation of Monero that uses the protocol and network in a compatible manner.
