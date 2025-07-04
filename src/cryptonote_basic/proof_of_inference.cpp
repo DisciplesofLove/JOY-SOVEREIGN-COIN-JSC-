@@ -32,5 +32,20 @@ namespace cryptonote
     const uint128_t max64 = std::numeric_limits<uint64_t>::max();
     return uint128_t(score) * difficulty <= max64;
   }
+
+  uint64_t calculate_network_inference_score(const std::string &model_output,
+                                             inference_network net)
+  {
+    // Placeholder routing. A real implementation would submit the
+    // output to the selected network and verify it there. For now we
+    // reuse the local scoring.
+    switch (net)
+    {
+    case inference_network::iota:
+    case inference_network::solana:
+    default:
+      return calculate_inference_score(model_output);
+    }
+  }
 }
 

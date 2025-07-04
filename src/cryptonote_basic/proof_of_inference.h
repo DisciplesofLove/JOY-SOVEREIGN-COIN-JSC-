@@ -9,6 +9,14 @@
 
 namespace cryptonote
 {
+  // Different networks that can verify inference results
+  enum class inference_network
+  {
+    local,
+    iota,
+    solana,
+  };
+
   /**
    * \brief Calculate a deterministic score from a model output
    *
@@ -20,5 +28,7 @@ namespace cryptonote
   uint64_t calculate_inference_score(const std::string &model_output);
   uint64_t calculate_block_inference_score(const block &b);
   bool check_inference_score(uint64_t score, difficulty_type difficulty);
+  uint64_t calculate_network_inference_score(const std::string &model_output,
+                                             inference_network net);
 }
 
