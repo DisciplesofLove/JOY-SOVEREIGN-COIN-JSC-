@@ -83,6 +83,7 @@ release: cmake-release
 	cd $(builddir)/release && cmake --build .
 
 release-test:
+	./utils/update_submodules.sh
 	mkdir -p $(builddir)/release
 	cd $(builddir)/release && cmake -D BUILD_TESTS=ON -D CMAKE_BUILD_TYPE=Release $(topdir) && $(MAKE) && $(MAKE) test
 
