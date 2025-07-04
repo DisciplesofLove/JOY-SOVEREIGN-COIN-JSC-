@@ -79,8 +79,8 @@ Monero is a private, secure, untraceable, decentralised digital currency. You ar
 
 ## Proof of Inference
 
-JOY Sovereign Coin experiments with a *proof-of-inference* consensus design. Instead of traditional mining, nodes submit verifiable machine learning inference results to participate in block production. The inference output is hashed and converted to a deterministic numeric score in `src/cryptonote_basic/proof_of_inference.cpp`.
-These lightweight models can run on edge devices, allowing everyday users to secure the network without dedicated mining hardware. For small tasks the inference results may be verified over the fee-less **IOTA** network, while large-scale inference can leverage **Solana** for its high throughput. This feature is experimental and disabled by default.
+JOY Sovereign Coin relies entirely on a *proof-of-inference* consensus design. Traditional proof-of-work mining has been removed. Nodes submit verifiable machine learning inference results which are hashed and converted to a deterministic numeric score in `src/cryptonote_basic/proof_of_inference.cpp`.
+These lightweight models can run on edge devices, allowing everyday users to secure the network without dedicated mining hardware. For small tasks the inference results may be verified over the fee-less **IOTA** network, while large-scale inference can leverage **Solana** for its high throughput.
 
 ## About this project
 
