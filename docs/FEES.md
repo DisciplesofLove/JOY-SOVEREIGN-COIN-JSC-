@@ -9,4 +9,4 @@ fee_per_byte = get_dynamic_base_fee(block_reward, median_block_weight)
 needed_fee = tx_weight * fee_per_byte
 ```
 
-`get_dynamic_base_fee` implements the scaling formula defined in `src/cryptonote_core/blockchain.cpp`. If `CRYPTONOTE_FEES_ENABLED` is set to `0` in `src/cryptonote_config.h`, all transactions are accepted without fees.
+`get_dynamic_base_fee` implements the scaling formula defined in `src/cryptonote_core/blockchain.cpp`. By default `CRYPTONOTE_FEES_ENABLED` is set to `0`, allowing transactions to be submitted without fees. Set it to `1` to require the calculated minimum fee.

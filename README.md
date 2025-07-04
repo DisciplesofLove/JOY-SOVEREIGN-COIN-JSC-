@@ -85,7 +85,7 @@ These lightweight models can run on edge devices, allowing everyday users to sec
 
 ## Transaction fees
 
-See [docs/FEES.md](docs/FEES.md) for details on how transaction fees are calculated. Set `CRYPTONOTE_FEES_ENABLED` to `0` in `src/cryptonote_config.h` to enable feeless transfers.
+See [docs/FEES.md](docs/FEES.md) for details on how transaction fees are calculated. Fees are disabled by default via `CRYPTONOTE_FEES_ENABLED = 0`; set the value to `1` in `src/cryptonote_config.h` to enforce them again.
 
 ## About this project
 
