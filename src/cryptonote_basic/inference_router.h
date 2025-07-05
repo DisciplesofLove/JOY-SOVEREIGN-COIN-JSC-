@@ -9,5 +9,5 @@ namespace cryptonote {
    * Placeholder that integrates with IOTA, Solana and Polygon
    * to subsidize transaction processing for feeless JOY operation.
    */
-  bool route_inference(const std::string &serialized_result);
+  void route_inference(const std::string &serialized_result);
 }
