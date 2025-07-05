@@ -6,7 +6,7 @@ JOY Sovereign Coin (JOY) is a private cryptocurrency based on Monero. It extends
 
 - **Proof of inference:** nodes submit verifiable machine-learning inference results instead of performing traditional mining.
 - **Feeless by default:** transaction fees can be disabled via the `CRYPTONOTE_FEES_ENABLED` flag.
-- **Cross-chain routing:** inference submissions and transfers can be relayed through IOTA, Solana and Polygon Supernet to subsidize costs.
+- **Cross-chain routing:** inference submissions and transfers can be relayed through IOTA, Solana and Polygon Supernet to subsidize costs. The placeholder implementation lives in `src/cryptonote_basic/inference_router.cpp`.
 - **Privacy:** ring signatures and stealth addresses inherited from Monero.
 
 ## Building
