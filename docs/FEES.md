@@ -10,3 +10,7 @@ needed_fee = tx_weight * fee_per_byte
 ```
 
 `get_dynamic_base_fee` implements the scaling formula defined in `src/cryptonote_core/blockchain.cpp`. By default `CRYPTONOTE_FEES_ENABLED` is set to `0`, allowing transactions to be submitted without fees. Set it to `1` to require the calculated minimum fee.
+
+## Feeless inference routing
+
+When proof-of-inference is enabled, JOY integrates with IOTA, Solana and Polygon Supernet. Inference results can be routed through these networks, allowing the JOY chain to subsidize transaction costs from partner networks and operate without native fees.
