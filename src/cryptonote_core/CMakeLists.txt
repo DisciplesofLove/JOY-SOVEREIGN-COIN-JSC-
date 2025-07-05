@@ -31,6 +31,9 @@ set(cryptonote_core_sources
   cryptonote_core.cpp
   tx_pool.cpp
   tx_sanity_check.cpp
+  staking.cpp
+  participation.cpp
+  governance.cpp
   cryptonote_tx_utils.cpp
   tx_verification_utils.cpp
 )

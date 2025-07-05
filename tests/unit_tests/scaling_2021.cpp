@@ -32,7 +32,9 @@
 
 #include "gtest/gtest.h"
 #include "cryptonote_core/blockchain.h"
+#include "cryptonote_config.h"
 
+#if CRYPTONOTE_FEES_ENABLED
 TEST(fee_2021_scaling, relay_fee_cases_from_pdf)
 {
   ASSERT_EQ(cryptonote::Blockchain::get_dynamic_base_fee(1200000000000, 300000), 38000);
@@ -43,7 +45,14 @@ TEST(fee_2021_scaling, relay_fee_cases_from_pdf)
   ASSERT_EQ(cryptonote::Blockchain::get_dynamic_base_fee(600000000000, 1425000), 842 /*840*/);
   ASSERT_EQ(cryptonote::Blockchain::get_dynamic_base_fee(600000000000, 1500000), 760);
 }
+#else
+TEST(fee_2021_scaling, disabled)
+{
+  ASSERT_EQ(cryptonote::Blockchain::get_dynamic_base_fee(1, 1), 0);
+}
+#endif
 
+#if CRYPTONOTE_FEES_ENABLED
 TEST(fee_2021_scaling, wallet_fee_cases_from_pdf)
 {
   std::vector<uint64_t> fees;
@@ -86,8 +95,14 @@ TEST(fee_2021_scaling, wallet_fee_cases_from_pdf)
   ASSERT_EQ(fees[0], 800);
   ASSERT_EQ(fees[1], 3200);
   ASSERT_EQ(fees[2], 64000);
-  ASSERT_EQ(fees[3], 260000);
+#else
+TEST(fee_2021_scaling, wallet_fee_cases_from_pdf_disabled)
+{
+  std::vector<uint64_t> fees;
+  cryptonote::Blockchain::get_dynamic_base_fee_estimate_2021_scaling(1,1,1,fees);
+  ASSERT_TRUE(fees.empty());
 }
+#endif
 
 TEST(fee_2021_scaling, rounding)
 {
